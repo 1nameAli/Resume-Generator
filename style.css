@@ -1,0 +1,17 @@
+
+.myimage{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+/* Ensure the form is hidden during print and only the CV template is shown */
+@media print {
+    #cv-form {
+        display: none !important; /* Hide the form when printing */
+    }
+    #cv-template {
+        display: block !important; /* Ensure the CV is visible when printing */
+    }
+}
+
+
