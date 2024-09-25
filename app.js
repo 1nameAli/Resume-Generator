@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+ 
 // Function to add a new education field
 function addNewEField() {
     var newField = document.createElement("textarea");
@@ -169,7 +169,7 @@ document.getElementById("cvButtonPrint").addEventListener("click",printCV)
 
 
 
-=======
+
 function addNewEField() {
     var newField = document.createElement("textarea");
     newField.classList.add("form-control");
@@ -202,4 +202,4 @@ function addNewSkillField() {
     skills.appendChild(newField);
     console.log("new field added");
 }
->>>>>>> d298e25241885ae0eba487fbe114bab2f11f76b9
+
