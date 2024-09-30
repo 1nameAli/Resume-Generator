@@ -4,14 +4,40 @@
     width: 150px;
     border-radius: 50%;
 }
-/* Ensure the form is hidden during print and only the CV template is shown */
+body{
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+    
+      
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 10px;
+    color: #333;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-weight: bold; 
+}
+
+/* Hide the form and share options when printing */
 @media print {
-    #cv-form {
-        display: none !important; /* Hide the form when printing */
+    #cv-form, #shareOptions {
+        display: none !important;  /* Hide CV form and sharing buttons during print */
     }
     #cv-template {
-        display: block !important; /* Ensure the CV is visible when printing */
+        display: block !important;  /* Ensure CV template is visible during print */
     }
 }
+
+
+
+
 
 
