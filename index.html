@@ -167,7 +167,7 @@
       </div>
     </div>
     <!-- Cv template -->
-    <div class="container text-center container-fluid" id="cv-template">
+    <div class="container text-center container-fluid"style="display:none;" id="cv-template">
       <div class="row">
         <!-- col 1 personal information -->
         <div class="col-md-4 py-5 bg-primary">
@@ -294,12 +294,23 @@
         </div>
       </div>
       <div class="container d-flex justify-content-center align-items-center">
-        <button class="btn btn-primary btn-md text-center mt-3 mb-5 ml-4" onclick="editCv()" id="cvButtonEdit">
+        <button class="btn btn-primary  text-center" onclick="editCv()" id="cvButtonEdit">
           Edit Resume
         </button>
-        <button class="btn btn-primary btn-md text-center mt-3 mb-5"onclick="printCv()" id="cvButtonPrint">
+        <button class="btn btn-primary  text-center" onclick="printCv()" id="cvButtonPrint">
           Print Resume
         </button>
+          
+        
+        
+      </div>
+      <br>
+      <div id="shareOptions" class="text-center" style="display:none;">
+        <p>Your resume link: <a href="#" id="resumeLink"  target="_blank"></a></p>
+        <button onclick="shareViaLinkedIn()" class="btn btn-primary shareLinkedIn" >Share on LinkedIn</button>
+        <button onclick="shareViaEmail()"  class="btn btn-primary shareEmail">Share via Email</button>
+      </div>
+        
     </div>
 
     <script
@@ -315,225 +326,4 @@
     ></script>
     <script src="app.js"></script>
   </body>
-</html>
-<!doctype html>
-<html lang="en">
-    <head>
-        <title>Title</title>
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
-
-        <!-- Bootstrap CSS v5.2.1 -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-            crossorigin="anonymous"
-        />
-        <link rel="stylesheet" href="style.css">
-    </head>
-
-    <body>
-        <h1 class="text-center">Resume Generator</h1>
-        <h4 class="text-center mt-3">By Muhammad Ali</h4>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h3>Personal Information</h3>
-                    <div class="form-group mt-2">
-                        <label for="name">Your Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter Here" required>
-                    </div>
-                    <div class="form-group mt-2">
-
-                        <label for="contact">Contact</label>
-                        <input type="text" class="form-control" id="contact" placeholder="Enter Here" required>
-                    </div>
-                        
-                    <div class="form-group mt-2">
-
-                        <label for="address">Address</label>
-                        <textarea class="form-control" id="address" placeholder="Enter Here" required></textarea>
-                        
-                    </div>
-                    <p class="">Important Links</p>
-                    <div class="form-group mt-2">
-
-                        <label for="githubLink">Github</label>
-                        <input type="text" class="form-control" id="githubLink" placeholder="Enter Here" required>
-                    </div>
-                    <div class="form-group mt-2">
-
-                        <label for="LinkedInLink">LinkedIn</label>
-                        <input type="text" class="form-control" id="LinkedInLink" placeholder="Enter Here" required>
-                    </div>
-                    <div class="form-group mt-2" >
-
-                        <label for="TwitterLink">Twitter</label>
-                        <input type="text" class="form-control" id="TwitterLink" placeholder="Enter Here" required>
-                    </div>
-                </div>
-            
-            <div class="col-md-6">
-                <h3> Professional Information</h3>
-                <div class="form-group " id="academicQualification">
-
-                    <label for="education">Education</label>
-                    <textarea class="form-control" class="education" placeholder="Enter Here"rows="3" required></textarea>
-                    
-                </div>
-                <div class="container d-flex justify-content-center align-items-center">
-
-                    <button onclick="addNewEField()" class="btn btn-primary btn-sm mt-3" id="eButton">Add</button>    
-                </div>       
-                <div class="form-group" id="we">
-
-                    <label for="workExperience">Work Experience</label>
-                    <textarea class="form-control workExperience" placeholder="Enter Here" rows="3" required></textarea>
-                        
-                </div>
-                <div class="container d-flex justify-content-center align-items-center">
-
-                    <button onclick="addNewWEField()" class=" btn btn-primary btn-sm mt-3" id="weButton">Add</button>
-                </div>
-                <div class="form-group "id="skills">
-
-                    <label for="education">Skills</label>
-                    <textarea class="form-control skills" placeholder="Enter Here" rows="3" required></textarea>
-                </div>
-                <div class="container d-flex justify-content-center align-items-center">
-
-                    <button onclick="addNewSkillField()" class="btn btn-primary btn-sm mt-3" id="skillButton">Add</button>    
-                </div>
-            </div>
-
-            </div>
-            <div class="container d-flex justify-content-center align-items-center">
-
-                <button class=" btn btn-primary btn-md text-center mt-3"id="cvButton">Generate Resume</button>
-            </div>
-                
-        </div>
-     <!-- Cv template -->
-         <div class="container text-center" id="cv-template">
-            <div class="row">
-                <div class="col-md-4 bg-secondary py-5">
-                    <img src="https://media.istockphoto.com/id/1341046662/vector/picture-profile-icon-human-or-people-sign-and-symbol-for-template-design.jpg?s=612x612&w=0&k=20&c=A7z3OK0fElK3tFntKObma-3a7PyO8_2xxW0jtmjzT78="class="image-fluid myimage" alt="">
-
-                    <div class="container">
-                        <p>Muhammad Ali</p>
-                        <p>03132758605</p>
-                        <p>Clifton Karachi,Pakistan</p>
-                        <hr>
-                        <p>
-
-                            <a href="https://github.com/1nameAli">Github</a>
-                        </p>
-                        <p>
-
-                            <a href="https://www.linkedin.com/in/muhammad-ali-asif-9b79142a7/">LinkedIn</a>
-                        </p>
-                        <p>
-
-                            <a href="https://x.com/1nameAli">Twitter</a>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-8  bg-light py-5">
-
-                    <div class="card">
-                      <div class="card-header bg-primary text-white">
-                        <h3>Education</h3>
-                      </div>
-                      <div class="card-body">
-                        <ul>
-                          <li>Bachelor of Science in Computer Science - University of XYZ (2015 - 2019)</li>
-                          <li>Master of Science in Data Science - ABC Institute (2020 - 2022)</li>
-                          <li>Web Development Bootcamp - Code Academy (2023)</li>
-                          <li>Certification in Machine Learning - Coursera (2024)</li>
-                        </ul>
-                      </div>
-                    </div>
-
-                    
-                    <div class="card">
-                        <div class="card-header bg-primary text-white">
-                          <h3>Work Experience</h3>
-                        </div>
-                        <div class="card-body">
-                          <ul>
-                            <li>
-                              <strong>Software Engineer</strong> – ABC Tech Solutions (2021 - Present)
-                              <ul>
-                                <li>Developed and maintained scalable web applications using React.js and Node.js.</li>
-                                <li>Led the integration of RESTful APIs to streamline data flows between services.</li>
-                                <li>Collaborated with cross-functional teams to improve product features and user experience.</li>
-                                <li>Improved application performance by optimizing database queries and code refactoring.</li>
-                              </ul>
-                            </li>
-                            <li>
-                              <strong>Frontend Developer</strong> – XYZ Digital Agency (2019 - 2021)
-                              <ul>
-                                <li>Designed and implemented responsive user interfaces using HTML5, CSS3, and JavaScript.</li>
-                                <li>Worked closely with designers to convert mockups into functional web pages.</li>
-                                <li>Enhanced client websites by introducing SEO best practices and improving load times.</li>
-                                <li>Collaborated with backend teams to ensure smooth API integration and data handling.</li>
-                              </ul>
-                            </li>
-                            <li>
-                              <strong>Junior Web Developer</strong> – WebWorks Studio (2018 - 2019)
-                              <ul>
-                                <li>Assisted in developing client websites using WordPress and custom themes.</li>
-                                <li>Provided technical support and troubleshooting for website performance issues.</li>
-                                <li>Contributed to site optimizations, improving speed and mobile compatibility.</li>
-                                <li>Maintained project documentation and code repositories using Git.</li>
-                              </ul>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      
-
-                      
-                      <div class="card">
-                        <div class="card-header bg-primary text-white">
-                          <h3>Skills</h3>
-                        </div>
-                        <div class="card-body">
-                          <ul>
-                            <li>JavaScript (ES6+)</li>
-                            <li>HTML5 & CSS3</li>
-                            <li>React.js & Redux</li>
-                            <li>Node.js & Express</li>
-                            <li>Database Management (MongoDB, SQL)</li>
-                            <li>Version Control (Git, GitHub)</li>
-                            <li>RESTful APIs & GraphQL</li>
-                            <li>Agile Development & Scrum</li>
-                          </ul>
-                        </div>
-                      </div>
-                      
-                  </div>
-                  
-            </div>
-         </div>        
-
-        
-        <script
-            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-            crossorigin="anonymous"
-        ></script>
-
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-            crossorigin="anonymous"
-        ></script>
-        <script src="app.js"></script>
-    </body>
 </html>
