@@ -1,205 +1,201 @@
- 
 // Function to add a new education field
-function addNewEField() {
-    var newField = document.createElement("textarea");
+const addNewEField = () => {
+    const newField = document.createElement("textarea");
     newField.classList.add("form-control", "mt-2", "educationField");
     newField.setAttribute("placeholder", "Enter Here");
     newField.setAttribute("rows", "3");
-    var academicQualification = document.getElementById("academicQualification");
-    academicQualification.appendChild(newField);
+
+    const academicQualification = document.getElementById("academicQualification");
+    academicQualification?.appendChild(newField);
     console.log("New education field added.");
-}
+};
+
 // Function to add a new work experience field
-function addNewWEField() {
-    var newField = document.createElement("textarea");
+const addNewWEField = () => {
+    const newField = document.createElement("textarea");
     newField.classList.add("form-control", "mt-2", "workExperienceField");
     newField.setAttribute("placeholder", "Enter Here");
     newField.setAttribute("rows", "2");
-    var we = document.getElementById("we");
-    we.appendChild(newField);
+
+    const we = document.getElementById("we");
+    we?.appendChild(newField);
     console.log("New work experience field added.");
-}
+};
+
 // Function to add a new skills field
-function addNewSkillField() {
-    var newField = document.createElement("textarea");
+const addNewSkillField = () => {
+    const newField = document.createElement("textarea");
     newField.classList.add("form-control", "mt-2", "skillsField");
     newField.setAttribute("placeholder", "Enter Here");
     newField.setAttribute("rows", "2");
-    var skills = document.getElementById("skills");
-    skills.appendChild(newField);
+
+    const skills = document.getElementById("skills");
+    skills?.appendChild(newField);
     console.log("New skills field added.");
-}
+};
+
 // Event listener for the Generate Resume button
-document.getElementById("cvButton").addEventListener("click", function () {
+document.getElementById("cvButton")?.addEventListener("click", () => {
     console.log("Generating CV...");
+
     // Personal Information
-    var nameField = document.getElementById("nameField").value;
-    var nameT = document.getElementById("nameT");
-    if (nameT)
-        nameT.innerHTML = nameField;
-    var nameT2 = document.getElementById("nameT2");
-    if (nameT2)
-        nameT2.innerHTML = nameField;
-    var contactField = document.getElementById("contactField").value;
-    var contactT = document.getElementById("contactT");
-    if (contactT)
-        contactT.innerHTML = contactField;
-    var addressField = document.getElementById("addressField").value;
-    var addressT = document.getElementById("addressT");
-    if (addressT)
-        addressT.innerHTML = addressField;
-    var githubLink = document.getElementById("githubLink").value;
-    var linkT1 = document.getElementById("LinkT1");
-    if (linkT1)
-        linkT1.innerHTML = githubLink;
-    var LinkedInLink = document.getElementById("LinkedInLink").value;
-    var linkT2 = document.getElementById("LinkT2");
-    if (linkT2)
-        linkT2.innerHTML = LinkedInLink;
-    var TwitterLink = document.getElementById("TwitterLink").value;
-    var linkT3 = document.getElementById("LinkT3");
-    if (linkT3)
-        linkT3.innerHTML = TwitterLink;
-    // Professional Information
-    // Education information
-    var educationField = document.getElementsByClassName("educationField");
-    var str1 = "";
-    for (var _i = 0, educationField_1 = educationField; _i < educationField_1.length; _i++) {
-        var e = educationField_1[_i];
-        str1 += "<li>".concat(e.value, "</li>");
+    const nameField = document.getElementById("nameField")?.value;
+    const nameT = document.getElementById("nameT");
+    const nameT2 = document.getElementById("nameT2");
+    nameT ? nameT.innerHTML = nameField : null;
+    nameT2 ? nameT2.innerHTML = nameField : null;
+
+    const contactField = document.getElementById("contactField")?.value;
+    const contactT = document.getElementById("contactT");
+    contactT ? contactT.innerHTML = contactField : null;
+
+    const addressField = document.getElementById("addressField")?.value;
+    const addressT = document.getElementById("addressT");
+    addressT ? addressT.innerHTML = addressField : null;
+
+    const githubLink = document.getElementById("githubLink")?.value;
+    const linkT1 = document.getElementById("LinkT1");
+    linkT1 ? linkT1.innerHTML = githubLink : null;
+
+    const LinkedInLink = document.getElementById("LinkedInLink")?.value;
+    const linkT2 = document.getElementById("LinkT2");
+    linkT2 ? linkT2.innerHTML = LinkedInLink : null;
+
+    const TwitterLink = document.getElementById("TwitterLink")?.value;
+    const linkT3 = document.getElementById("LinkT3");
+    linkT3 ? linkT3.innerHTML = TwitterLink : null;
+
+    // Professional Information: Education
+    const educationField = document.getElementsByClassName("educationField");
+    let str1 = "";
+    for (const e of educationField) {
+        str1 += `<li>${e.value}</li>`;
     }
-    var educationT = document.getElementById("educationT");
-    if (educationT)
-        educationT.innerHTML = str1;
-    else
-        console.error("Element with ID educationT not found.");
+    const educationT = document.getElementById("educationT");
+    educationT ? educationT.innerHTML = str1 : console.error("Element with ID educationT not found.");
+
     // Work experience information
-    var workExperienceField = document.getElementsByClassName("workExperienceField");
-    var str2 = "";
-    for (var _a = 0, workExperienceField_1 = workExperienceField; _a < workExperienceField_1.length; _a++) {
-        var w = workExperienceField_1[_a];
-        str2 += "<li>".concat(w.value, "</li>");
+    const workExperienceField = document.getElementsByClassName("workExperienceField");
+    let str2 = "";
+    for (const w of workExperienceField) {
+        str2 += `<li>${w.value}</li>`;
     }
-    var workExperienceT = document.getElementById("weT");
-    if (workExperienceT)
-        workExperienceT.innerHTML = str2;
-    else
-        console.error("Element with ID weT not found.");
+    const workExperienceT = document.getElementById("weT");
+    workExperienceT ? workExperienceT.innerHTML = str2 : console.error("Element with ID weT not found.");
+
     // Skills information
-    var skillsField = document.getElementsByClassName("skillsField");
-    var str3 = "";
-    for (var _b = 0, skillsField_1 = skillsField; _b < skillsField_1.length; _b++) {
-        var s = skillsField_1[_b];
-        str3 += "<li>".concat(s.value, "</li>");
+    const skillsField = document.getElementsByClassName("skillsField");
+    let str3 = "";
+    for (const s of skillsField) {
+        str3 += `<li>${s.value}</li>`;
     }
-    var skillsT = document.getElementById("skillsT");
-    if (skillsT)
-        skillsT.innerHTML = str3;
-    else
-        console.error("Element with ID skillsT not found.");
+    const skillsT = document.getElementById("skillsT");
+    skillsT ? skillsT.innerHTML = str3 : console.error("Element with ID skillsT not found.");
+
     // Toggle visibility of CV form and template
     document.getElementById("cv-form").style.display = "none";
     document.getElementById("cv-template").style.display = "block";
-    // setting img code
-    var imgField = document.getElementById("imgField").files[0]; // Get the file
-    var reader = new FileReader();
-    reader.onloadend = function () {
-        var imgCode = reader.result; // Access the data URL result here
+
+    // Set image
+    const imgField = document.getElementById("imgField")?.files[0]; // Get the file
+    const reader = new FileReader();
+    reader.onloadend = () => {
+        const imgCode = reader.result; // Access the data URL result here
         document.getElementById("imgT").src = imgCode; // Set the image source
     };
-    if (imgField) {
-        reader.readAsDataURL(imgField); // Start reading the file as a data URL
-    }
+    imgField ? reader.readAsDataURL(imgField) : null; // Start reading the file as a data URL
 });
+
 // Function to edit the CV
-function editCv() {
+const editCv = () => {
     // Switch the visibility of the CV template and form
     document.getElementById("cv-template").style.display = "none";
     document.getElementById("cv-form").style.display = "block";
-    
+
     // Pre-fill the form with the current CV data from the generated template
-    document.getElementById("nameField").value = document.getElementById("nameT").innerHTML;
-    document.getElementById("contactField").value = document.getElementById("contactT").innerHTML;
-    document.getElementById("addressField").value = document.getElementById("addressT").innerHTML;
-    document.getElementById("githubLink").value = document.getElementById("LinkT1").innerHTML;
-    document.getElementById("LinkedInLink").value = document.getElementById("LinkT2").innerHTML;
-    document.getElementById("TwitterLink").value = document.getElementById("LinkT3").innerHTML;
+    document.getElementById("nameField").value = document.getElementById("nameT")?.innerHTML ?? '';
+    document.getElementById("contactField").value = document.getElementById("contactT")?.innerHTML ?? '';
+    document.getElementById("addressField").value = document.getElementById("addressT")?.innerHTML ?? '';
+    document.getElementById("githubLink").value = document.getElementById("LinkT1")?.innerHTML ?? '';
+    document.getElementById("LinkedInLink").value = document.getElementById("LinkT2")?.innerHTML ?? '';
+    document.getElementById("TwitterLink").value = document.getElementById("LinkT3")?.innerHTML ?? '';
 
     // Pre-fill education fields
-    let educationList = document.getElementById("educationT").getElementsByTagName("li");
-    let educationFields = document.getElementsByClassName("educationField");
-    for (let i = 0; i < educationList.length; i++) {
+    const educationList = document.getElementById("educationT")?.getElementsByTagName("li");
+    const educationFields = document.getElementsByClassName("educationField");
+    for (let i = 0; i < educationList?.length; i++) {
         if (educationFields[i]) {
             educationFields[i].value = educationList[i].innerHTML;
         }
     }
 
     // Pre-fill work experience fields
-    let workExperienceList = document.getElementById("weT").getElementsByTagName("li");
-    let workExperienceFields = document.getElementsByClassName("workExperienceField");
-    for (let i = 0; i < workExperienceList.length; i++) {
+    const workExperienceList = document.getElementById("weT")?.getElementsByTagName("li");
+    const workExperienceFields = document.getElementsByClassName("workExperienceField");
+    for (let i = 0; i < workExperienceList?.length; i++) {
         if (workExperienceFields[i]) {
             workExperienceFields[i].value = workExperienceList[i].innerHTML;
         }
     }
 
     // Pre-fill skills fields
-    let skillsList = document.getElementById("skillsT").getElementsByTagName("li");
-    let skillsFields = document.getElementsByClassName("skillsField");
-    for (let i = 0; i < skillsList.length; i++) {
+    const skillsList = document.getElementById("skillsT")?.getElementsByTagName("li");
+    const skillsFields = document.getElementsByClassName("skillsField");
+    for (let i = 0; i < skillsList?.length; i++) {
         if (skillsFields[i]) {
             skillsFields[i].value = skillsList[i].innerHTML;
         }
     }
-}
-
+};
 
 // Function to print the CV
-function printCV() {
+const printCv = () => {
     // Ensure the form is hidden and the CV template is shown before printing
     document.getElementById("cv-form").style.display = "none";
     document.getElementById("cv-template").style.display = "block";
-    
+
     // Delay the print slightly to ensure the UI is updated before printing
-    setTimeout(function() {
-        window.print(); // Trigger the print functionality
+    setTimeout(() => {
+        window.print();
+          // After printing, show the sharing options
+          document.getElementById("shareOptions").style.display = "block"; // Show sharing buttons (LinkedIn, Email)
     }, 500);
-}
-document.getElementById("cvButtonPrint").addEventListener("click",printCV)
+
+    const username = document.getElementById("nameField")?.value;
+    const resumeURL = generateUniqueURL(username);
+
+    const resumeLink = document.getElementById("resumeLink");
+    resumeLink.href = resumeURL;
+    resumeLink.innerText = resumeURL;
+
+    // Show sharing options
+    document.getElementById("shareOptions").style.display = "block";
+};
+
+document.getElementById("cvButtonPrint")?.addEventListener("click", printCv);
+
+
+// Dummy function for URL generation
+const generateUniqueURL = (username) => `https://example.com/resume/${encodeURIComponent(username)}`;
+
+const shareViaLinkedIn = () => {
+    const resumeURL = document.getElementById("resumeLink")?.href;
+    const linkedInURL = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(resumeURL)}`;
+    window.open(linkedInURL, "_blank");
+};
+
+document.getElementById("shareLinkedIn")?.addEventListener("click", shareViaLinkedIn);
+
+const shareViaEmail = () => {
+    const resumeURL = document.getElementById("resumeLink")?.href;
+    const subject = "Check out my resume!";
+    const body = `Hi,\n\nI wanted to share my resume with you. You can view it here: ${resumeURL}`;
+    window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+};
+
+document.getElementById("shareEmail")?.addEventListener("click", shareViaEmail);
 
 
 
 
-function addNewEField() {
-    var newField = document.createElement("textarea");
-    newField.classList.add("form-control");
-    newField.setAttribute("placeholder", "Enter Here");
-    newField.classList.add("mt-2");
-    newField.setAttribute("rows", "3");
-    var academicQualification = document.getElementById("academicQualification");
-    var eButton = document.getElementById("eButton");
-    academicQualification.appendChild(newField);
-}
-function addNewWEField() {
-    var newField = document.createElement("textarea");
-    newField.classList.add("form-control");
-    newField.setAttribute("placeholder", "Enter Here");
-    newField.classList.add("mt-2");
-    newField.setAttribute("rows", "2");
-    var we = document.getElementById("we");
-    var weButton = document.getElementById("weButton");
-    we.appendChild(newField);
-    console.log("new field added");
-}
-function addNewSkillField() {
-    var newField = document.createElement("textarea");
-    newField.classList.add("form-control");
-    newField.setAttribute("placeholder", "Enter Here");
-    newField.classList.add("mt-2");
-    newField.setAttribute("rows", "2");
-    var skills = document.getElementById("skills");
-    var weButton = document.getElementById("skillButton");
-    skills.appendChild(newField);
-    console.log("new field added");
-}
 
